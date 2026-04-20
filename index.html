@@ -3,91 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bize Ulaşın - İletişim Formu</title>
-    <!-- Tailwind CSS CDN -->
+    <title>İletişim | Kapveroix Analiz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Inter', sans-serif;
-            background-color: #fcfcfc;
-        }
-        .form-shadow {
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.04);
-        }
-        .input-style {
-            background-color: #ffffff;
-            border: 1.5px solid #e5e7eb;
-            transition: all 0.2s ease;
-        }
-        .input-style:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-            outline: none;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; }
+        .form-shadow { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); }
+        .input-focus:focus { border-color: #3b82f6; ring: 2px; ring-color: #3b82f6; outline: none; }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center p-6">
 
-    <div class="max-w-[550px] w-full bg-white rounded-[20px] p-10 form-shadow border border-gray-100">
-        
-        <!-- Başlık Bölümü -->
-        <div class="text-center mb-10">
-            <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">Bize Ulaşın</h1>
-            <p class="text-gray-500 mt-2 text-sm font-medium">Sorularınız için aşağıdaki formu doldurabilirsiniz.</p>
+    <div class="max-w-[500px] w-full bg-white rounded-2xl p-8 form-shadow border border-gray-100">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">Bize Ulaşın</h1>
+            <p class="text-gray-500 mt-2 text-sm leading-relaxed">Sorularınız için aşağıdaki formu doldurabilirsiniz. Uzman ekibimiz en kısa sürede dönüş yapacaktır.</p>
         </div>
 
-        <!-- Form Alanı -->
-        <!-- ACTION kısmına kendi VDS'indeki handler dosyasının URL'sini yazmalısın -->
-        <form action="http://216.106.178.54:6060/contact_handler.php" method="POST" class="space-y-6">
-            
+        <!-- NOT: Action kısmına senin VDS IP'ni ve PHP dosyanın adını yazdım -->
+        <form action="http://216.106.178.54:6060/contact_handler.php" method="POST" class="space-y-4">
             <div>
-                <label class="block text-[14px] font-semibold text-gray-700 mb-2">Adınız Soyadınız</label>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Adınız Soyadınız</label>
                 <input type="text" name="full_name" required placeholder="Örn: Ahmet Yılmaz" 
-                       class="w-full px-4 py-3.5 rounded-xl input-style text-gray-800 placeholder-gray-400">
+                       class="w-full px-4 py-3 border border-gray-200 rounded-xl input-focus transition-all placeholder-gray-300">
             </div>
 
             <div>
-                <label class="block text-[14px] font-semibold text-gray-700 mb-2">E-posta Adresiniz</label>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">E-posta Adresiniz</label>
                 <input type="email" name="email_address" required placeholder="isim@sirket.com" 
-                       class="w-full px-4 py-3.5 rounded-xl input-style text-gray-800 placeholder-gray-400">
+                       class="w-full px-4 py-3 border border-gray-200 rounded-xl input-focus transition-all placeholder-gray-300">
             </div>
 
             <div>
-                <label class="block text-[14px] font-semibold text-gray-700 mb-2">Konu</label>
-                <div class="relative">
-                    <select name="subject" class="w-full px-4 py-3.5 rounded-xl input-style text-gray-800 appearance-none bg-white cursor-pointer">
-                        <option value="Teknik Destek">Teknik Destek</option>
-                        <option value="Satis">Satış ve Pazarlama</option>
-                        <option value="Diger">Diğer</option>
-                    </select>
-                    <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-                        <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </div>
-                </div>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Konu</label>
+                <select name="subject" class="w-full px-4 py-3 border border-gray-200 rounded-xl input-focus transition-all bg-white cursor-pointer">
+                    <option value="Teknik Destek">Teknik Destek</option>
+                    <option value="Yatirim Analizi">Yatırım Analizi</option>
+                    <option value="Diger">Diğer</option>
+                </select>
             </div>
 
             <div>
-                <label class="block text-[14px] font-semibold text-gray-700 mb-2">Mesajınız</label>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Mesajınız</label>
                 <textarea name="message_body" rows="4" required placeholder="Mesajınızı buraya yazın..." 
-                          class="w-full px-4 py-3.5 rounded-xl input-style text-gray-800 placeholder-gray-400 resize-none"></textarea>
+                          class="w-full px-4 py-3 border border-gray-200 rounded-xl input-focus transition-all placeholder-gray-300 resize-none"></textarea>
             </div>
 
-            <button type="submit" class="w-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold py-4 rounded-xl transition-all duration-200 transform active:scale-[0.98] shadow-lg shadow-blue-200">
+            <button type="submit" class="w-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-bold py-4 rounded-xl transition-all shadow-md active:scale-95">
                 MESAJI GÖNDER
             </button>
-
         </form>
 
-        <!-- Alt Bilgi -->
-        <div class="mt-10 text-center">
-            <p class="text-[11px] text-gray-400 uppercase tracking-widest font-medium">
+        <div class="mt-8 text-center">
+            <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">
                 © 2026 Pentest Lab - Authorized Access Only
             </p>
         </div>
-
     </div>
 
 </body>
